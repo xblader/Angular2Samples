@@ -1,6 +1,6 @@
+import { NaoEncontradoComponent } from './cursos/nao-encontrado/nao-encontrado.component';
+import { CursoDetalheComponent } from './cursos/curso-detalhe/curso-detalhe.component';
 import { NgModule } from '@angular/core';
-import { NaoEncontradoComponent } from './nao-encontrado/nao-encontrado.component';
-import { CursoDetalheComponent } from './curso-detalhe/curso-detalhe.component';
 import { CursosComponent } from './cursos/cursos.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
