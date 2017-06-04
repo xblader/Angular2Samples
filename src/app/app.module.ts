@@ -1,6 +1,6 @@
+import { AlunosModule } from './alunos/alunos.module';
 import { CursosModule } from './cursos/cursos.module';
 import { AppRoutingModule } from './app.routing.module';
-//import { routing } from './app.routing';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -21,6 +21,7 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     HttpModule,
     CursosModule,
+    AlunosModule,
     AppRoutingModule
   ],
   bootstrap: [AppComponent]
