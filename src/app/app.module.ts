@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './login/auth.service';
 //import { AlunosModule } from './alunos/alunos.module';
 //import { CursosModule } from './cursos/cursos.module';
@@ -17,7 +18,7 @@ import { LoginComponent } from './login/login.component';
     HomeComponent,
     LoginComponent
   ],
-  providers:[AuthService],
+  providers:[AuthService, AuthGuard],
   imports: [
     BrowserModule,
     FormsModule,
