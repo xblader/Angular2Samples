@@ -1,5 +1,5 @@
-import { AlunosModule } from './alunos/alunos.module';
-import { CursosModule } from './cursos/cursos.module';
+//import { AlunosModule } from './alunos/alunos.module';
+//import { CursosModule } from './cursos/cursos.module';
 import { AppRoutingModule } from './app.routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -20,8 +20,8 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    CursosModule,
-    AlunosModule,
+    //CursosModule,
+   // AlunosModule,
     AppRoutingModule
   ],
   bootstrap: [AppComponent]

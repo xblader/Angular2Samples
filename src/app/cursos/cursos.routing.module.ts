@@ -5,9 +5,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const cursosRoutes: Routes = [    
-    {path:'cursos', component: CursosComponent},
-    {path: 'curso/:id', component: CursoDetalheComponent},  
-    {path:'naoEncontrado', component: NaoEncontradoComponent}    
+    {path:'', component: CursosComponent},
+    {path:'naoEncontrado', component: NaoEncontradoComponent},
+    {path: ':id', component: CursoDetalheComponent}    
 ];
 
 @NgModule({
