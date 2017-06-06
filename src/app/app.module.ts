@@ -1,3 +1,4 @@
+import { AuthService } from './login/auth.service';
 //import { AlunosModule } from './alunos/alunos.module';
 //import { CursosModule } from './cursos/cursos.module';
 import { AppRoutingModule } from './app.routing.module';
@@ -16,6 +17,7 @@ import { LoginComponent } from './login/login.component';
     HomeComponent,
     LoginComponent
   ],
+  providers:[AuthService],
   imports: [
     BrowserModule,
     FormsModule,
