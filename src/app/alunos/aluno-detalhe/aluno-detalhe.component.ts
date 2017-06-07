@@ -18,14 +18,20 @@ export class AlunoDetalheComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    this.inscricao = this.route.params.subscribe(
-      (params: any) =>{
-        this.id = params['id'];
-        this.aluno = this.alunoService.getAluno(this.id);
+    // this.inscricao = this.route.params.subscribe(
+    //   (params: any) =>{
+    //     this.id = params['id'];
+    //     this.aluno = this.alunoService.getAluno(this.id);
 
-        if(this.aluno == null){
-          this.router.navigate(['/naoEncontrado']);
-        }
+    //     if(this.aluno == null){
+    //       this.router.navigate(['/naoEncontrado']);
+    //     }
+    //   }
+    // );
+    this.inscricao = this.route.data.subscribe(
+      (info)=> {
+        console.log(info);
+        this.aluno = info.aluno;//nome aluno é o mesmo que está no resolver
       }
     );
   }
