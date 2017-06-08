@@ -16,7 +16,9 @@ export class CursoDetalheComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private cursoService: CursosService,
-              private router: Router) { }
+              private router: Router) { 
+                console.log('alunodetalhecomponenet');
+              }
 
   ngOnInit() {
   this.inscricao = this.route.params.subscribe(

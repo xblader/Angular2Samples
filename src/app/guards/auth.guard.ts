@@ -6,9 +6,14 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AuthGuard implements CanActivate, CanLoad {
 
-  constructor(private authservice: AuthService, private router: Router) { }
+  constructor(private authservice: AuthService, private router: Router) 
+  {
+    console.log(authservice);
+    console.log(router);
+  }
 
   canActivate(route:ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
+      console.log('canActivate=> AuthGuard');
       if(this.authservice.usuarioEstaAutenticado()){        
         return true;
       }
@@ -19,15 +24,16 @@ export class AuthGuard implements CanActivate, CanLoad {
       return false;
   }
 
-    private verificarAcesso(){
-      if(this.authservice.usuarioEstaAutenticado()){
+    private verificarAcesso(): boolean{
+      if(this.authservice.usuarioEstaAutenticado()){        
         return true;
       }
+      this.router.navigate(['/login']);
+      return false;
     }
 
-  	canLoad(route: Route): Observable<boolean>|Promise<boolean>|boolean {
-      console.log('verificando se pode carregar o modulo...');
-      return this.verificarAcesso();
-    }
+  	 canLoad(route: Route): Observable<boolean>|Promise<boolean>|boolean {       
+       return this.verificarAcesso();
+     }
 
 }
