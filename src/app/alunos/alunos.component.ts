@@ -13,7 +13,7 @@ export class AlunosComponent implements OnInit {
   constructor(private alunosService: AlunosService) { }
 
   ngOnInit() {
-    this.alunos = this.alunosService.getAlunos();
+    this.alunosService.getAlunos().then(heroes => this.alunos = heroes);
   }
 
 }

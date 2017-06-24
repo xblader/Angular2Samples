@@ -1,27 +1,38 @@
 import { Aluno } from './aluno';
 import { Injectable } from '@angular/core';
+import {Http } from '@angular/http';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class AlunosService {
+  private heroesUrl = '/alunos';  // URL to web api
 
-  private alunos: Aluno[] = [
-    {id:1,nome:'Aluno 01', email:'aluno01@email.com'},
-    {id:2,nome:'Aluno 02', email:'aluno02@email.com'},
-    {id:3,nome:'Aluno 03', email:'aluno03@email.com'}
-  ];
+  constructor(private http: Http) { }
 
-  constructor() { }
+  getAlunos(): Promise<Aluno[]> {  
+    return this.http.get(this.heroesUrl)
+             .toPromise()
+             .then(response => response.json().data as Aluno[])
+             .catch(this.handleError);
+  }
 
-  getAlunos(){
-    return this.alunos;
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error); // for demo purposes only
+    return Promise.reject(error.message || error);
+  }
+
+  getAlunosSlowly(): Promise<Aluno[]> {
+  return new Promise(resolve => {
+    // Simulate server latency with 2 second delay
+    setTimeout(() => resolve(this.getAlunos()), 2000);
+    });
   }
 
   getAluno(id:number){
-    let alunos = this.alunos;
-    for(let aluno of alunos){
-      if(aluno.id == id)
-        return aluno;
-    }
-    return null;
+    const url = `${this.heroesUrl}/${id}`;
+    return this.http.get(url)
+    .toPromise()
+    .then(response => response.json().data as Aluno)
+    .catch(this.handleError);
   }
 }
